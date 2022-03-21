@@ -6,7 +6,6 @@
         </h2>
     </x-slot>
 
-
     <!doctype html>
     <html lang="en">
 
@@ -15,16 +14,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Formations!</title>
-        <!-- ********************************************* -->
-        <!-- Comment link tags  under Usage 2 if you use bootstrap on local -->
-        <!-- Comment link tags  under Usage 1 if you use bootstrap with cdn -->
-        <!-- ********************************************* -->
-
-        <!-- ============Usage 1: Local bootstrap CSS ressource file!============= -->
-        <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./formations/css/style.css"> -->
-        <!-- ============Usage 2: Online  bootstrap CSS ressource file!============= -->
+       
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
@@ -231,10 +221,10 @@
                                     @foreach($formations as $formation)
 
                                     <div class="my-3 justify-content-center ">
-                                        <div
-                                            class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
-                                            <img src="{{ ('img/leadership.jpg') }}"
-                                                class="card-img-top sp-rounded-top-15" alt="Leadership illustration">
+                                        <div class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
+                                          
+                                                {{ $formation->image }}
+
                                             <div class="card-body sp-rounded-bottom-15">
                                                 <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
                                                         {{ $formation->nom_formation }}
@@ -365,6 +355,7 @@
                             <!-- card formation -->
                             <div class="col-md  col-sm-12">
                                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+                                @foreach($formations as $formation)
                                     <div class="my-3 justify-content-center ">
                                         <div
                                             class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
@@ -372,107 +363,19 @@
                                                 class="card-img-top sp-rounded-top-15" alt="Leadership Illustration">
                                             <div class="card-body sp-rounded-bottom-15">
                                                 <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
-                                                    LeaderShip</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk of the
-                                                    card's content.</p>
+                                                    {{ $formation->nom_formation }}       
+                                            </h5>
+                                                <p class="card-text">
+                                                    
+                                                {{ Str::limit($formation->description, 100)}}    
+                                                </p>
                                                 <a href="#"
                                                     class=" d-inline-block my-2  sp-text-sm  px-3 py-1 sp-rounded-link  sp-btn-danger ">En
                                                     savoir plus</a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="my-3 justify-content-center ">
-                                        <div
-                                            class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
-                                            <img src="{{ asset('img/communication.jpg') }}"
-                                                class="card-img-top sp-rounded-top-15" alt="Communication Illustration">
-                                            <div class="card-body sp-rounded-bottom-15">
-                                                <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
-                                                    Comminication</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk of the
-                                                    card's content.</p>
-                                                <a href="#"
-                                                    class=" d-inline-block my-2  sp-text-sm  px-3 py-1 sp-rounded-link  sp-btn-danger ">En
-                                                    savoir plus</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-3 justify-content-center ">
-                                        <div
-                                            class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
-                                            <img src="{{ asset('img/technologie.jpg') }}"
-                                                class="card-img-top sp-rounded-top-15" alt="Infographie Illustration">
-                                            <div class="card-body sp-rounded-bottom-15">
-                                                <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
-                                                    Infographie</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk of the
-                                                    card's content.</p>
-                                                <a href="#"
-                                                    class="d-inline-block my-2  sp-text-sm  px-3 py-1 sp-rounded-link sp-btn-danger">En
-                                                    savoir plus</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-3 justify-content-center ">
-                                        <div
-                                            class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
-                                            <img src="{{ asset('img/emailing.jpg') }}"
-                                                class="card-img-top sp-rounded-top-15" alt="Emailing Illustration">
-                                            <div class="card-body sp-rounded-bottom-15">
-                                                <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
-                                                    Emailing </h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk of the
-                                                    card's content.</p>
-                                                <a href="#"
-                                                    class=" d-inline-block my-2  sp-text-sm  px-3 py-1 sp-rounded-link  sp-btn-danger ">En
-                                                    savoir plus</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-3 justify-content-center ">
-                                        <div
-                                            class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
-                                            <img src="{{ asset('img/teamWorking.png') }}"
-                                                class="card-img-top sp-rounded-top-15" alt="Work in Team Illustration">
-                                            <div class="card-body sp-rounded-bottom-15">
-                                                <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
-                                                    Travail en equipe</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk of the
-                                                    card's content.</p>
-                                                <a href="#"
-                                                    class=" d-inline-block my-2  sp-text-sm  px-3 py-1 sp-rounded-link  sp-btn-danger ">En
-                                                    savoir plus</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="my-3 justify-content-center ">
-                                        <div
-                                            class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
-                                            <img src="{{ asset('img/seo.jpg') }}" class="card-img-top sp-rounded-top-15"
-                                                alt="Web Referencement Illustration">
-                                            <div class="card-body sp-rounded-bottom-15">
-                                                <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
-                                                    Referencement web</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and
-                                                    make up the bulk of the
-                                                    card's content.</p>
-                                                <a href="#"
-                                                    class=" d-inline-block my-2  sp-text-sm  px-3 py-1 sp-rounded-link  sp-btn-danger ">En
-                                                    savoir plus</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                  @endforeach
                                 </div>
                                 <div class=" col-12 px-0 text-end alert">
                                     <a href=""
@@ -519,7 +422,7 @@
                                             Développeur.euse en
                                             intelligence artificielle
                                         </p>
-                                        <img class="dropdown-icon" src="./formations/img/SVG/dropdown-svgrepo-com.svg"
+                                        <img class="dropdown-icon" src="{{ asset('img/SVG/dropdown-svgrepo-com.svg') }}"
                                             width="30" height="30" alt="dropdown icon">
                                     </div>
                                     <div class="card-body sp-rounded-bottom-15">
@@ -616,17 +519,7 @@
        @include('partials.footer')
         <!-- End Section footer -->
 
-        <!-- ********************************************* -->
-        <!-- Comment Scripts under Usage 1 if you use bootstrap with CDN -->
-        <!-- Comment Scripts under Usage 2 if you use bootstrap on local -->
-        <!-- ********************************************* -->
-
-        <!-- ============Usage 1: Local bootstrap JavaScript ressource file! ============= -->
-        <!-- <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./formations/js/script.js"></script> -->
-
-        <!-- ============Usage 2: Online bootstrap JavaScript ressource file! ============= -->
-        <!--                jQuery first, then Popper.js, then Bootstrap JS                 -->
+                      -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
         </script>
