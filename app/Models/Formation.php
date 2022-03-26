@@ -14,6 +14,14 @@ class Formation extends Model
 
     protected $guarded = [];
 
+    public static function boot()
+    {
+        parent::boot();
+        // self::creating(function($formation){
+        //     $formation->user()->associate(auth()->user()->id);
+        //     $formation->category()->associate(request()->category);
+        // });
+    }
 
     public function user()
     {

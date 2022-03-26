@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFormationRequest;
 use App\Http\Requests\UpdateFormationRequest;
+use App\Models\Category;
 use App\Models\Formation;
+use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request as HttpRequest;
 
 class FormationController extends Controller
 {
@@ -26,18 +29,30 @@ class FormationController extends Controller
      */
     public function create()
     {
-        
+        $categories = Category::all();
+        return view('formations.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreFormationRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreFormationRequest $request)
     {
-        //
+        $imageName = $request->file()['image']->store('formations');
+        // dd($request->all());
+        Formation::create([
+            
+            'nom_formation' => $request->nom_formation,
+            'description' => $request->description,
+            'date_debut' => $request->date_debut,
+            'date_fin' => $request->date_fin,
+            'image' => $imageName,
+
+        ]);
+
+        return redirect()->route('dashboard')->with('success', 'Votre Formation a été bien créé');
     }
 
     /**
@@ -48,7 +63,7 @@ class FormationController extends Controller
      */
     public function show(Formation $formation)
     {
-        //
+        return view('formations.show', compact('formation'));
     }
 
     /**
