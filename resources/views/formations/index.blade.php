@@ -27,7 +27,7 @@
             <nav class="navbar navbar-expand-lg  fw-bold">
                 <div class="container">
                     <a class="navbar-brand" href="#" title="Logo Simplon">
-                        <img src="{{ asset('img/img/simplonSN.png') }}" alt="Logo Simplon" width="150"
+                        <img src="{{ asset('img/simplonSN.png') }}" alt="Logo Simplon" width="150"
                             class=" d-inline-block align-text-top">
                     </a>
                     <button class="navbar-toggler border  border-2 border-black" type="button" data-bs-toggle="collapse"
@@ -102,7 +102,7 @@
                         <input type="text" class="form-control sp-input-shadow" placeholder="Rechercher une formation"
                             aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <span class="input-group-text sp-btn-danger" id="basic-addon2"><i
-                                class="bi bi-search   text-black" aria-hidden="true"></i></span>
+                            class="bi bi-search   text-black" aria-hidden="true"></i></span>
                     </div>
                 </div>
             </div>
@@ -178,29 +178,7 @@
                                     <div class="vertical-bar">
                                     </div>
                                     <div class="menu flex-column menu-public">
-                                        <p
-                                            class="active align-items-center d-flex my-4 p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
-                                            <span class="d-flex align-items-center">
-                                                <object type="image/svg+xml" data="{{ asset('img/SVG/IconFemmeBlanc.svg') }}"
-                                                title=" icon"></object>
-                                            </span>
-                                            Femme
-                                        </p>
-                                        <p
-                                            class="align-items-center d-flex my-4 p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
-                                            <span class="d-flex align-items-center">
-                                                <object type="image/svg+xml"
-                                                    data="{{ asset('img/SVG/IconKidsblanc.svg') }}"                                              title="icon"></object>
-                                        </span>
-                                        Kids
-                                    </p>
-                                    <p
-                                        class="align-items-center d-flex my-4 p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
-                                        <span class="d-flex align-items-center">
-                                            <object type="image/svg+xml" data="{{ asset('img/SVG/IconPshblanc.svg') }}"  title="icon"></object>
-                                            </span>
-                                            PSH
-                                        </p>
+                                    @foreach($formations as $formation)
                                         <p
                                             class="align-items-center d-flex my-4 p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
                                             <span class="d-flex align-items-center">
@@ -208,8 +186,10 @@
                                                     data="{{ asset('img/SVG/IconDiscoverBlanc.svg') }}"
                                                     title="icon"></object>
                                             </span>
-                                            Refugies
+                                            {{ $formation->category->nom_categorie}}
                                         </p>
+
+                                    @endforeach
                                     </div>
 
                                 </div>
@@ -222,8 +202,8 @@
 
                                     <div class="my-3 justify-content-center ">
                                         <div class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
-                                          
-                                                {{ $formation->image }}
+                                                
+                                            {{ $formation->image}}
 
                                             <div class="card-body sp-rounded-bottom-15">
                                                 <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
@@ -231,7 +211,7 @@
                                                 </h5>
                                                 <p class="card-text">
 
-                                                {{ Str::limit($formation->description, 100)}}
+                                                {{ Str::limit($formation->description, 100  )}}
                                                 </p>
                                                 <a href="#"
                                                     class=" d-inline-block my-2  sp-text-sm  px-3 py-1 sp-rounded-link  sp-btn-danger ">En
@@ -239,10 +219,7 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     @endforeach
-                                    
-                                  
                                 </div>
                                 <div class=" col-12 px-0 text-end alert">
                                     <a href=""
@@ -268,36 +245,18 @@
                             usually
                             consider it, with time, to be part of a boundless four-dimensional continuum known as
                             spacetime.
-                            The concept of space is considered to be of fundamental importance to an understanding of
-                            the
-                            physical Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, nostrum optio id
-                            iusto
-                            doloribus suscipit similique incidunt minima molestiae alias tempora beatae. Eaque, ducimus
-                            maiores?
-                            Corporis nostrum fugit alias eum exercitationem tempore ab sapiente temporibus modi quae
-                            tempora
-                            laudantium deserunt asperiores aliquid ratione dolorum placeat omnis hic enim aperiam
-                            ducimus,
-                            labore aliquam. Vitae, adipisci ea accusamus esse molestias quae tenetur asperiores
-                            aspernatur
-                            laborum aperiam molestiae vero quod praesentium fuga dolore deserunt facere libero. Sunt
-                            earum
-                            debitis
-                            corporis nihil magni, maiores quasi natus! Deleniti cum perferendis placeat vel corporis
-                            dolor
-                            quod
-                            reiciendis ad ullam? Minus architecto officia animi quod quo sit.
+                           
                         </p>
                         <div class="row align-items-center p-relative">
                             <!-- menu secondaire -->
-                            <div class="menu secondary-menu position-fixed d-md-none secondary-menu-parcours">
-                                <p
-                                    class="active align-items-center d-flex p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
+                            
+                            <!-- <div class="menu secondary-menu position-fixed d-md-none secondary-menu-parcours">
+                                <p class="active align-items-center d-flex p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
                                     <span class="d-flex align-items-center">
                                         <object type="image/svg+xml" data="{{ asset('img/SVG/IconDiscoverBlanc.svg') }}"
                                             title="icon"></object>
                                     </span>
-                                    Decouverte
+                                    decouverte
                                 </p>
                                 <p class="align-items-center d-flex p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
                                     <span class="d-flex align-items-center">
@@ -312,61 +271,51 @@
                                             data="{{ asset('img/SVG/IconOrienteMetierBlanc.svg') }}"
                                             title="icon"></object>
                                     </span>
-                                    Metier
+                                    metier
                                 </p>
-                            </div>
+                            </div> -->
+                          
                             <!-- menu -->
+                        
                             <div class="d-none d-md-inline-block col-md-2 col-sm-12 p-0 text-center">
                                 <div class="left-bloc my-4 d-flex align-items-center  align-items-sm-start  ">
                                     <div class="vertical-bar">
                                     </div>
                                     <div class="menu flex-column menu-parcours">
+                                    @foreach($formations as $formation)
+
                                         <p
                                             class="active align-items-center d-flex my-4 p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
                                             <span class="d-flex align-items-center">
                                                 <object type="image/svg+xml"
                                                     data="{{ asset('img/SVG/IconDiscoverBlanc.svg') }}"
-                                                    title="icon"></object>
+                                                    title="icon">
+                                                </object>
                                             </span>
-                                            Decouverte
+                                            {{ $formation->category->nom_categorie}}
                                         </p>
-                                        <p
-                                            class="align-items-center d-flex my-4 p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
-                                            <span class="d-flex align-items-center">
-                                                <object type="image/svg+xml"
-                                                    data="{{ asset('img/SVG/father-svgrepo-com.svg') }}"
-                                                    title="icon"></object>
-                                            </span>
-                                            Initiation
-                                        </p>
-                                        <p
-                                            class="align-items-center d-flex my-4 p-1 pe-md-3 rounded-pill rounded-start shadow-sm">
-                                            <span class="d-flex align-items-center">
-                                                <object type="image/svg+xml"
-                                                    data="{{ asset('img/SVG/IconOrienteMetierBlanc.svg') }}"
-                                                    title="icon"></object>
-                                            </span>
-                                            Metier
-                                        </p>
+                                     @endforeach   
+                                     
                                     </div>
-
                                 </div>
+                                
                             </div>
+                          
                             <!-- card formation -->
+                            
                             <div class="col-md  col-sm-12">
                                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
                                 @foreach($formations as $formation)
                                     <div class="my-3 justify-content-center ">
-                                        <div
-                                            class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
-                                            <img src="{{ asset('img/leadership.jpg') }}"
-                                                class="card-img-top sp-rounded-top-15" alt="Leadership Illustration">
+                                        <div class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
+                                             
+                                                {{ $formation->image}}
                                             <div class="card-body sp-rounded-bottom-15">
                                                 <h5 class="card-title center text-uppercase fw-bold sp-red sp-text-sm">
                                                     {{ $formation->nom_formation }}       
                                             </h5>
                                                 <p class="card-text">
-                                                    
+
                                                 {{ Str::limit($formation->description, 100)}}    
                                                 </p>
                                                 <a href="#"
@@ -375,7 +324,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                  @endforeach
+                                @endforeach
                                 </div>
                                 <div class=" col-12 px-0 text-end alert">
                                     <a href=""

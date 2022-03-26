@@ -26,7 +26,7 @@ class FormationController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

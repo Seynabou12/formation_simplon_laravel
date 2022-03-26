@@ -14,13 +14,9 @@ use App\Http\Controllers\FormationController;
 |
 */
 
-Route::get('/', [FormationController::class, 'index'])->name('formations.index');
+ Route::get('/', [FormationController::class, 'index'])->name('formations.index');
 
 Route::resource('formations', FormationController::class)->except('index');
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

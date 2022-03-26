@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $categories = Category::factory(5)->create();
+        $categories = Category::factory(3)->create();
             User::factory(10)->create()->each(function ($user) use ($categories){
                 Formation::factory(rand(1, 3))->create([
                     'user_id' => $user -> id,
