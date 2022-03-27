@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('formations.create')" :active="request()->routeIs('formations.create')">
                         {{ __('Ajouter Une Formation') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('categories.create')" :active="request()->routeIs('categories.create')">
+                        {{ __('Ajouter Une Categorie de Formation') }}
+                    </x-nav-link>
                 </div>
             </div>
 

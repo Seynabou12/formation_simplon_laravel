@@ -39,6 +39,7 @@ class FormationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreFormationRequest $request)
+
     {
         $imageName = $request->file()['image']->store('formations');
         // dd($request->all());
@@ -49,10 +50,11 @@ class FormationController extends Controller
             'date_debut' => $request->date_debut,
             'date_fin' => $request->date_fin,
             'image' => $imageName,
+            'category_id' => $request->category,
 
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Votre Formation a été bien créé');
+        return redirect()->route('formations.index')->with('success', 'Votre Formation a été bien créé');
     }
 
     /**
@@ -74,7 +76,7 @@ class FormationController extends Controller
      */
     public function edit(Formation $formation)
     {
-        //
+        
     }
 
     /**
@@ -86,7 +88,7 @@ class FormationController extends Controller
      */
     public function update(UpdateFormationRequest $request, Formation $formation)
     {
-        //
+        
     }
 
     /**
@@ -97,6 +99,6 @@ class FormationController extends Controller
      */
     public function destroy(Formation $formation)
     {
-        //
+        
     }
 }

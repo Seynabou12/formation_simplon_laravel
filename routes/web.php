@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormationController;
 use GuzzleHttp\Middleware;
@@ -16,9 +17,13 @@ use GuzzleHttp\Middleware;
 */
 
 Route::get('/', [FormationController::class, 'index'])->name('formations.index');
+Route::get('/categories', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 
 Route::middleware(['auth'])->group(function()
 {
+    
+
     Route::resource('formations', FormationController::class)->except('index');
 
     Route::get('/dashboard', function () {
