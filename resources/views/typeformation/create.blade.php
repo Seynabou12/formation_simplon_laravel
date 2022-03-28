@@ -2,7 +2,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Creer une Categorie de formation') }}
+            {{ __('Creer un type de formation') }}
         </h2>
     </x-slot>
 
@@ -26,43 +26,28 @@
         <!-- Main -->
         <main class="container">
 
-            <!-- <div class="my-5">
-
-                @foreach($errors->all() as $error)
-                    
-                    <span class="block text-red-500">{{ $error }}</span>
-
-                @endforeach
-            </div>
-             -->
-            <form action="{{ route('categories.store') }}" method="post"  class="mt-10" >
+       
+            <form action="{{ route('typeformation.store') }}" method="post"  class="mt-10" >
 
                 @csrf
                 <div class=" shadow-md rounded px-8 pt-6 pb-8 mb-4 " >
                  
-                <h1 class="text-center">Formulaire d'ajout de categorie</h1>
+                <h1 class="text-center">Formulaire ajout type Formation</h1>
 
                     <div class="mb-4" style="margin: 50px;">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
-                            <h5>Nom Categorie</h5>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="nom">
+                            <h5>Nom du Type</h5>
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight " id="category" type="text" name="category" placeholder="nom de la formation">
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight " id="nom" type="text" name="nom" placeholder="nom du type de formation">
                     </div>
-                    
                     <div class="mb-4" style="margin: 50px;">
-                            <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
-                              <h5> Type de la formation</h5> 
-                            </label>
-                            <select name="typeformation" id="typeformation">
-                                @foreach ($typeformations as $typeformation)
-
-                                    <option value="{{ $typeformation->id }}">{{ $typeformation->nom }}</option>
-
-                                @endforeach
-                            </select>
-                        </div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+                            <h5>Description</h5>
+                        </label>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight " id="description" type="text" name="description" placeholder="description du type de formation"></textarea>
+                    </div>
                    
-                        <x-button style="display: block !important;">Creer une Categorie</x-button> 
+                        <x-button style="display: block !important;">Creer un Type formation</x-button> 
                     </div>    
                 </form>
             </main>

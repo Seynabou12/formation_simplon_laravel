@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreFormationRequest;
-use App\Http\Requests\UpdateFormationRequest;
 use App\Models\Category;
 use App\Models\Formation;
 use Illuminate\Http\Client\Request;
 use Illuminate\Http\Request as HttpRequest;
+use App\Http\Requests\StoreFormationRequest;
+use App\Http\Requests\UpdateFormationRequest;
+use PhpParser\Node\Stmt\Catch_;
 
 class FormationController extends Controller
 {
@@ -18,6 +19,7 @@ class FormationController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
         $formations = Formation::all();
         return view('formations.index', compact('formations'));
     }

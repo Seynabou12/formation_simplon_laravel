@@ -1,9 +1,8 @@
 <?php
 
-use App\Models\TypeFormation;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
@@ -14,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('type_formations', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_categorie');
+            $table->string('nom');
+            $table->string('description');
             $table->timestamps();
-
-            $table->foreignIdFor(TypeFormation::class);
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('type_formations');
     }
 };

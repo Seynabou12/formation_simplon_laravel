@@ -94,34 +94,20 @@
         <!-- public Section  -->
         <section class="row mb-3 justify-content-center row-secondary public-section">
             <div class="col-12">
+            
                 <div class="col-10 offset-1">
+                
                     <!-- Public title -->
-                    <h2 class=" fw-bold text-uppercase sp-red sp-line-under mb-2">Par Public </h2>
+                   
+                    @foreach($categories as $category)
+
+                    <h2 class=" fw-bold text-uppercase sp-red sp-line-under mb-2">{{ $category->typeformation->nom}} </h2>
                     <p class="my-5 text-justify">
-                        Physical space is often conceived in three linear dimensions, although modern physicists
-                        usually
-                        consider it, with time, to be part of a boundless four-dimensional continuum known as
-                        spacetime.
-                        The concept of space is considered to be of fundamental importance to an understanding of
-                        the
-                        physical Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, nostrum optio id
-                        iusto
-                        doloribus suscipit similique incidunt minima molestiae alias tempora beatae. Eaque, ducimus
-                        maiores?
-                        Corporis nostrum fugit alias eum exercitationem tempore ab sapiente temporibus modi quae
-                        tempora
-                        laudantium deserunt asperiores aliquid ratione dolorum placeat omnis hic enim aperiam
-                        ducimus,
-                        labore aliquam. Vitae, adipisci ea accusamus esse molestias quae tenetur asperiores
-                        aspernatur
-                        laborum aperiam molestiae vero quod praesentium fuga dolore deserunt facere libero. Sunt
-                        earum
-                        debitis
-                        corporis nihil magni, maiores quasi natus! Deleniti cum perferendis placeat vel corporis
-                        dolor
-                        quod
-                        reiciendis ad ullam? Minus architecto officia animi quod quo sit.
+
+                        {{ $category->typeformation->description }}
                     </p>
+                    @endforeach
+              
                     <div class="row align-items-center display-block">
                         <!-- menu -->
                         <div class="d-none d-md-inline-block col-md-2 col-sm-12 p-0 text-center col-md">
@@ -305,7 +291,6 @@
                     <div class="row me row-cols-1 row-cols-sm-2 row-cols-md-3 ">
                         @foreach($formations as $formation)
                         <div class="my-3  justify-content-center ">
-
                             <div class="card shadow-sm h-100 text-center sp-rounded-top-15 sp-rounded-bottom-15">
                                 <div class="card-header sp-bg-red  sp-rounded-top-15">
                                     <p class=" text-uppercase fw-bold text-white sp-text-sm">
